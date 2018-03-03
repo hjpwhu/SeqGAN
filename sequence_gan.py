@@ -126,7 +126,8 @@ def main():
             generate_samples(sess, generator, BATCH_SIZE, generated_num, eval_file)
             likelihood_data_loader.create_batches(eval_file)
             test_loss = target_loss(sess, target_lstm, likelihood_data_loader)
-            print(f"pre-train epoch: {epoch}, \ttest loss: {test_loss}")
+            # print(f"pre-train epoch: {epoch}, \ttest loss: {test_loss}")
+            print("pre-train epoch: {0}, \ttest loss: {0}".format(epoch, test_loss))
             buffer = 'epoch:\t'+ str(epoch) + '\tnll:\t' + str(test_loss) + '\n'
             log.write(buffer)
 
@@ -166,7 +167,7 @@ def main():
             test_loss = target_loss(sess, target_lstm, likelihood_data_loader)
             buffer = 'epoch:\t' + str(total_batch) + '\tnll:\t' + str(test_loss) + '\n'
             # print 'total_batch: ', total_batch, 'test_loss: ', test_loss
-            print(f"total_batch: {total_batch}, \ttest_loss: {test_loss}")
+            # print(f"total_batch: {total_batch}, \ttest_loss: {test_loss}")
             log.write(buffer)
 
         # Update roll-out parameters
